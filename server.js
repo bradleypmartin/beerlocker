@@ -37,7 +37,7 @@ router.route('/api/beers/:beer_id')
 
 // Create endpoint handlers for /users
 router.route('/api/users')
-  .post(userController.postUsers)
+//  .post(userController.postUsers)
   .get(authController.isAuthenticated, userController.getUsers);
 
 // Register all our routes
