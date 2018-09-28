@@ -25,23 +25,23 @@ app.use(passport.initialize());
 var router = express.Router();
 
 // Create endpoint handlers for /beers
-router.route('/beers')
+router.route('/api/beers')
   .post(authController.isAuthenticated, beerController.postBeers)
   .get(authController.isAuthenticated, beerController.getBeers);
 
 // Create endpoint handlers for /beers/:beer_id
-router.route('/beers/:beer_id')
+router.route('/api/beers/:beer_id')
   .get(authController.isAuthenticated, beerController.getBeer)
   .put(authController.isAuthenticated, beerController.putBeer)
   .delete(authController.isAuthenticated, beerController.deleteBeer);
 
 // Create endpoint handlers for /users
-router.route('/users')
+router.route('/api/users')
   .post(userController.postUsers)
   .get(authController.isAuthenticated, userController.getUsers);
 
-// Register all our routes with /api
-app.use('/api', router);
+// Register all our routes
+app.use(router);
 
 // Start the server
 app.listen(3000);
