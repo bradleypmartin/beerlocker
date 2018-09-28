@@ -46,4 +46,4 @@ passport.use(new DigestStrategy(
   }
 ));
 
-exports.isAuthenticated = passport.authenticate(['digest', 'bearer'], { session : false });
+exports.isAuthenticated = passport.authenticate('digest', { session : false });
