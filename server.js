@@ -4,10 +4,13 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var beerController = require('./controllers/beer');
 var userController = require('./controllers/user');
+<<<<<<< HEAD
 var passport = require('passport');
 var authController = require('./controllers/auth');
 var ejs = require('ejs');
 var oauth2Controller = require('./controllers/oauth2');
+=======
+>>>>>>> parent of 179d3c6... Adding functional authentication
 
 // Connect to the beerlocker MongoDB
 mongoose.connect('mongodb://localhost:27017/beerlocker');
@@ -23,6 +26,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+<<<<<<< HEAD
 // Use express session support since OAuth2orize requires it
 app.use(session({
   secret: 'Super Secret Session Key',
@@ -33,24 +37,26 @@ app.use(session({
 // Use the passport package in our application
 app.use(passport.initialize());
 
+=======
+>>>>>>> parent of 179d3c6... Adding functional authentication
 // Create our Express router
 var router = express.Router();
 
 // Create endpoint handlers for /beers
 router.route('/beers')
-  .post(authController.isAuthenticated, beerController.postBeers)
-  .get(authController.isAuthenticated, beerController.getBeers);
+  .post(beerController.postBeers)
+  .get(beerController.getBeers);
 
 // Create endpoint handlers for /beers/:beer_id
 router.route('/beers/:beer_id')
-  .get(authController.isAuthenticated, beerController.getBeer)
-  .put(authController.isAuthenticated, beerController.putBeer)
-  .delete(authController.isAuthenticated, beerController.deleteBeer);
+  .get(beerController.getBeer)
+  .put(beerController.putBeer)
+  .delete(beerController.deleteBeer);
 
 // Create endpoint handlers for /users
 router.route('/users')
   .post(userController.postUsers)
-  .get(authController.isAuthenticated, userController.getUsers);
+  .get(userController.getUsers);
 
   // Create endpoint handlers for /clients
 router.route('/clients')

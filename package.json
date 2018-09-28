@@ -6,11 +6,15 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "~4.16.3",
+<<<<<<< HEAD
     "express-session": "^1.15.6",
     "mongoose": "^5.2.17",
     "oauth2orize": "^1.11.0",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
     "passport-http-bearer": "^1.0.1"
+=======
+    "mongoose": "^5.2.17"
+>>>>>>> parent of 179d3c6... Adding functional authentication
   }
 }
