@@ -40,6 +40,11 @@ router.route('/users')
   .post(userController.postUsers)
   .get(authController.isAuthenticated, userController.getUsers);
 
+  // Create endpoint handlers for /clients
+router.route('/clients')
+  .post(authController.isAuthenticated, clientController.postClients)
+  .get(authController.isAuthenticated, clientController.getClients);
+
 // Register all our routes with /api
 app.use('/api', router);
 
